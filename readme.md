@@ -50,7 +50,7 @@ The **Dynamic Window Approach (DWA)** is implemented in this package through the
 
 ---
 
-# ⚙️ Build Instructions
+# Build Instructions
 
 ```bash
 # Create a new ROS 2 workspace
