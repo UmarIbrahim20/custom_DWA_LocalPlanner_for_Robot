@@ -96,3 +96,20 @@ ros2 run custom_dwa_local_planner custom_dwa_node
 If you encounter issues with missing simulation models, environment variables, or Gazebo dependencies, please refer to the official TurtleBot3 Quick Start documentation for setup and troubleshooting:
 
 [**TurtleBot3 Quick Start Guide**](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
+```
+--- 
+## Discussion and Future Work
+
+The current implementation of the Dynamic Window Approach (DWA) effectively enables the robot to navigate toward designated goals while maintaining robust obstacle avoidance.  
+However, performance analysis reveals that the planner exhibits **overly conservative behavior**, leading to frequent halts and unnecessary reorientations near obstacles.  
+This indicates that the **obstacle avoidance cost** currently dominates the cost function, reducing motion efficiency in cluttered environments.
+
+In future iterations, the focus will be on achieving a **more balanced and assertive navigation profile**.  
+This will involve:
+
+- **Reducing** the `OBSTACLE_COST_GAIN` and `FOOTPRINT_PADDING` values to allow tighter, yet safe, proximity to obstacles.  
+- **Increasing** the `TO_GOAL_COST_GAIN` to strengthen goal-directed behavior and maintain smoother forward motion.  
+- Incorporating **adaptive parameter tuning** based on real-time environment feedback to dynamically balance safety and efficiency.  
+- Exploring integration with **semantic costmaps** or **learning-based local planners** to improve decision-making in complex terrain.
+
+These refinements aim to enhance both the **fluidity** and **reliability** of local navigation in dynamic or cluttered environments.
