@@ -3,15 +3,11 @@
 This package implements a **Dynamic Window Approach (DWA)** based local planner for the **TurtleBot3 Waffle model** in **ROS 2 Humble**.  
 It calculates optimal linear and angular velocities in real time by simulating multiple motion trajectories, evaluating them through cost functions, and selecting the safest and most efficient path to navigate within a Gazebo environment.
 
----
-<video width="640" height="360" controls>
-  <source src="src/img/demonstration.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![Demo Preview](./src/img/demo_preview.gif)
 
 ---
 
-## ⚙️ How DWA is Applied in This Code
+## How DWA is Applied in This Code
 
 The **Dynamic Window Approach (DWA)** is implemented in this package through the following key stages:
 
