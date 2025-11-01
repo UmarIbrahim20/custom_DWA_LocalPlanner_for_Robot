@@ -10,9 +10,6 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/config', [
-            'custom_dwa_local_planner/config/custom_dwa_params.yaml'
-        ]),
     ],
     install_requires=['setuptools', 'numpy'],
     zip_safe=True,

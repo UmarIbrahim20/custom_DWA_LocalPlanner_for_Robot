@@ -50,35 +50,44 @@ The **Dynamic Window Approach (DWA)** is implemented in this package through the
 
 ---
 
-## Build Instructions
+# ⚙️ Build Instructions
 
 ```bash
-# 1. Create a workspace
+# Create a new ROS 2 workspace
 mkdir -p ~/custom_dwa/src
 cd ~/custom_dwa/src
 
-# 2. Clone the repository
+# Clone the custom DWA planner repository
 git clone https://github.com/UmarIbrahim20/custom_DWA_LocalPlanner_for_Robot.git
 
-# 3. Return to the workspace root
-cd ~/custom_dwa
+# Return to the TurtleBot3 workspace (if applicable)
+cd ~/custom_dwa/src/turtlebot3_ws
 
-# 4. Build the package
+# Build the TurtleBot3 simulation packages
 colcon build
 
-# 5. Source the workspace
+# Return to the workspace root
+cd ~/custom_dwa
+
+# Build only the custom DWA planner package
+colcon build --packages-select custom_dwa_local_planner
+
+# (Optional) Build all packages again to ensure linking
+colcon build
+
+# Source the workspace
 source install/setup.bash
 
-# 6. Set the TurtleBot3 model
+# Set the TurtleBot3 model (choose: burger, waffle, or waffle_pi)
 export TURTLEBOT3_MODEL=waffle
 
-# 7. Launch the simulation environment
+# Launch the TurtleBot3 Gazebo simulation environment
 ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 
-# 8. Launch RViz for visualization
+# Launch RViz for visualization
 rviz2 -d src/custom_dwa_local_planner/rviz/custom_rviz.rviz
 
-# 9. Run the DWA planner node
+# Run the custom DWA local planner node
 ros2 run custom_dwa_local_planner custom_dwa_node
 
 
